@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp / CV</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css"
+        integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #50a3a2 0%, #2eca7f 100%);
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #626262;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: #171717;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .left-side,
+        .right-side {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .left-side {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .right-side {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        header nav a {
+            width: 100%;
+            height: 72px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: color 0.3s ease 0s;
+            font-size: 20px;
+            position: relative;
+        }
+
+        header nav a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 1px;
+            height: 100%;
+            background: radial-gradient(ellipse at top, rgba(197, 202, 213, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        header nav a .link {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        header nav a:hover {
+            color: #2eca7f;
+        }
+
+        main {
+            border-top: 1px solid lightgray;
+            border-left: 1px solid lightgray;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        main .profile,
+        main .about,
+        main .resume,
+        main .works,
+        main .blog,
+        main .contact {
+            box-sizing: border-box;
+            position: relative;
+            background: #ffffff;
+            text-align: center;
+            z-index: 10;
+            border-radius: 4px;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        main .about,
+        main .resume,
+        main .works,
+        main .blog,
+        main .contact {
+            padding: 30px 20px;
+            margin-top: 15px;
+        }
+
+        main .profile {
+            margin-top: 18px;
+            overflow: hidden;
+        }
+        
+
+        .profile-background {
+            height: 100px;
+            width: 300px;
+
+        }
+
+        .profile-image {
+            position: relative;
+            height: 84px;
+        }
+
+        .profile-image img {
+            position: relative;
+            top: -82px;
+            border-radius: 50%;
+            border: 3px solid white;
+            width: 134px;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -69px;
+            left: calc(50% - 78px);
+            width: 134px;
+            height: 134px;
+            background: linear-gradient(135deg, rgba(46, 202, 127, 0.4) 0%, rgba(46, 202, 127, 0.01) 100%);
+            border-radius: 100%;
+        }
+
+        .profile-name {
+            font-size: 32px;
+            color: #171717;
+            line-height: 32px;
+            font-weight: 400;
+            margin: 0 auto 0 auto;
+        }
+
+        .profile-profession {
+            font-size: 14px;
+            color: #2eca7f;
+            line-height: 14px;
+            font-weight: 400;
+        }
+
+        .profile-social a {
+            transition: color 0.3s ease 0s;
+            margin: 0 6px;
+            font-size: 16px;
+        }
+
+        .profile-social a:hover {
+            text-decoration: none;
+            color: #2eca7f;
+        }
+
+        .profile-buttons {
+            position: relative;
+            display: flex;
+            margin-top: 58px;
+        }
+
+        .profile-buttons::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 1px;
+            background: radial-gradient(ellipse at left, rgba(197, 202, 213, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .profile-buttons a {
+            position: relative;
+            width: 50%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+            line-height: 70px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .profile-buttons a:hover {
+            text-decoration: none;
+            color: #2eca7f;
+        }
+
+        .profile-buttons a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background: radial-gradient(ellipse at top, rgba(197, 202, 213, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .profile-buttons a:last-child::before {
+            content: none;
+        }
+
+        .profile-buttons a span {
+            margin-left: 4px;
+        }
+
+        .profile-buttons a.download:hover span {
+            color: #171717;
+        }
+
+        .profile-buttons a.contact:hover span {
+            color: #2eca7f;
+        }
+
+        .profile-buttons {
+            position: relative;
+            display: flex;
+            /* Make the buttons container a flexbox */
+            margin-top: 58px;
+        }
+
+        .profile-buttons::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 1px;
+            background: radial-gradient(ellipse at left, rgba(197, 202, 213, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .profile-buttons a {
+            position: relative;
+            width: 50%;
+            /* Adjust width if needed */
+            height: 70px;
+            display: flex;
+            /* Make each button a flexbox */
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+            line-height: 70px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            border: 1px solid rgba(197, 202, 213, 0.7);
+            /* Add a border to separate boxes */
+        }
+
+        .profile-buttons a:hover {
+            text-decoration: none;
+            color: #2eca7f;
+        }
+
+        .profile-buttons a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background: radial-gradient(ellipse at top, rgba(197, 202, 213, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .profile-buttons a.active,
+        .profile-buttons a:hover.active {
+            background: #f2f2f2;
+            color: black;
+        }
+
+        .contact-box {
+            margin-top: 20px;
+            /* Add some margin from the profile buttons */
+            text-align: center;
+            /* Center the button horizontally */
+        }
+
+        .contact-box a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            /* Adjust width as needed */
+            height: 50px;
+            /* Adjust height as needed */
+            background-color: #2eca7f;
+            /* Set background color */
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            border: none;
+            /* Remove border for a cleaner look */
+            border-radius: 5px;
+            /* Add rounded corners */
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-box a:hover {
+            background-color: #38b07f;
+            /* Change background color on hover */
+        }
+
+
+
+        .btn {
+            border: 1px solid #d8dbe2;
+            border-radius: 5px;
+            height: 40px;
+            padding: 0 15px;
+            font-size: 13px;
+            color: #2eca7f;
+            line-height: 40px;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+            background: #fff;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            border: 1px solid #2eca7f;
+            color: #2eca7f;
+            box-shadow: none;
+        }
+
+        .btn:hover::before,
+        .btn:focus::before {
+            width: 100%;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(46, 202, 127, 0.05);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .sections {
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .service {
+            display: flex;
+            align-items: center;
+            background-color: #e0f7f7;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .service img {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .service h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .service p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .title {
+            text-align: left;
+        }
+
+        .title h2 {
+            display: inline-block;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <header align="left">
+            <nav>
+                <a href="portfolio2.html"><i class="fas fa-user"></i> <span class="link">About</span></a>
+            </nav>
+            <nav>
+                <a href="Ayush.pdf"><i class="fas fa-file-alt"></i> <span class="link">Resume</span></a>
+            </nav>
+
+            <nav>
+                <a href="Contacct.html"><i class="fas fa-envelope"></i> <span class="link">Contact</span></a>
+            </nav>
+        </header>
+    </div>
+    <div class="container">
+        <div class="left-side">
+            <main>
+
+                <section class="profile">
+
+                    <div class="profile-background">
+                        <alt="Profile Background">
+                            <br>
+                    </div>
+                    <div class="profile-image">
+                        <img src="Ayush.webp" alt="Profile Image">
+                    </div>
+                    <br>
+                    <br>
+
+                    <h1 class="profile-name">Ayush Kashyap Jha</h1>
+                    <h2 class="profile-profession">Web Developer</h2>
+                    <div class="profile-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+
+                    <div class="profile-buttons">
+                        <a href="Ayush.pdf" class="download"><i class="fas fa-download"></i> <span>Download Resume</span></a>
+                        <a href="Contacct.html" class="contact"><i class="fas fa-envelope"></i> <span>Contact</span></a>
+                    </div>
+
+                </section>
+            </main>
+        </div>
+        <div class="right-side sections">
+
+            <div class="right-side sections">
+                <main>
+                    <div>
+                        <section id="about">
+                            <h2>About</h2>
+                            <p>I am Ryan Adlard, a web designer from the USA, California. I have rich experience in
+                                website design, building, and customization. I am also good at WordPress. I love to talk
+                                with you about our unique projects.</p>
+                            <p>AGE . . . .
+                                24<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>RESIDENCE
+                                . . . . USA</p>
+
+                            <p>FREELANCE . . . .
+                                Available<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>ADDRESS
+                                . . . . California, USA</p>
+
+                        </section>
+
+                    </div>
+
+
+                    <div>
+                        <div class="container">
+                            <a>
+                                <div class="title">
+                                    <h2>Skills</h2>
+                                </div>
+                        </div>
+                        </a>
+                        <div class="services">
+                            <div class="service">
+                                <div>
+                                    <img src="logo1.png" alt="Web Development"><br>
+                                    <h3>Languages :</h3>
+                                    <p> HTML/CSS, JavaScript - (node.js || react.js), C/C#, PHP, Python </p>
+                                </div>
+                            </div>
+                            <div class="service">
+                                <div>
+                                    <img src="logo2.png" alt="Music Writing">
+                                    <h3>Technical :</h3>
+                                    <p>DSA, DBMS, Networks, Ethical Hacking, UI/UX : Figma, Canva </p>
+                                </div>
+                            </div>
+
+                            <div class="service">
+                                <div>
+                                    <img src="logo3.png" alt="Advertising">
+                                    <h3>Frameworks :</h3>
+                                    <p>React.Js, Node.Js, Linux, Windows, MacOs </p>
+                                </div>
+                            </div>
+                            <div class="service">
+                                <div>
+                                    <img src="logo3.png" alt="Game Development">
+                                    <h3>Database : </h3>
+                                    <p> MySQL, MongoDB, Oracle, Access, Xampp, Microsoft Excel</p>
+                                </div>
+                            </div>
+
+                            <div class="service">
+                                <div>
+                                    <img src="logo3.png" alt="Game Development">
+                                    <h3>Other : </h3>
+                                    <p> Team Work, Sketching, Problem Solving, Front end Designing, Microsoft Azure,
+                                        Excel,
+                                        Word, Figma </p>
+                                </div>
+                            </div>
+                            <div class="service">
+                                <div>
+                                    <img src="logo3.png" alt="Game Development">
+                                    <h3>Profession : </h3>
+                                    <p> Full StackDevloper </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+
+                            <div class="container">
+
+                                <div class="title">
+                                    <h2><a href="#about">Capstone Project</h2>
+                                </div>
+                            </div>
+
+                            <div class="service">
+                                <div>
+                                    <img src="logo1.png" alt="Web Development"><br>
+                                    <p>
+                                    <h3>AgroGenius Harvest : Farming Website</h3>
+                                    </p>
+                                    <p>
+                                    <h2>Description :</h2>
+
+                                    <p>Revolutionize farming with AgriGenius Harvest - a comprehensive platform offering
+                                        cold storage mapping, fertilizers, urea distribution, and expert guidance.
+                                        Streamlining the supply chain, it connects farmers directly with suppliers for
+                                        optimized yield and sustainable practices. Join us for a tech-infused,
+                                        sustainable agricultural future. </p>
+                                    <br>
+                                    <p><h2>Role : </h2> <p>Team Leader</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+
+                            <div class="title">
+                                <h2>Self Projects</h2>
+                            </div>
+
+                        </div>
+                        <div class="services">
+                            <div class="service">
+                                <div>
+                                    <img src="logo1.png" alt="Web Development"><br>
+                                    <p>
+                                    <h3>Amazon E-commerce</h3>
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="service">
+                                <div>
+                                    <img src="logo1.png" alt="Web Development"><br>
+                                    <p>
+                                    <h3>E-commerce</h3>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="service">
+                                <div>
+                                    <img src="logo1.png" alt="Web Development"><br>
+                                    <p>
+                                    <h3>Portfolio</h3>
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="service">
+                                <div>
+                                    <img src="logo1.png" alt="Web Development"><br>
+                                    <p>
+                                    <h3>Weather Focasting</h3>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div><br><br></div>
+                    <br>
+
+                    <div class="container">
+
+                        <div class="title">
+                            <h2>Achievements</h2>
+                        </div>
+
+                    </div>
+                    <div class="service">
+                        <div>
+                            <img src="logo1.png" alt="Web Development"><br>
+                            <p>
+                            <h3>Online Certifications : </h3>
+                            </p>
+                            <p>Microsoft AI Azure</p>
+                            <p>Data Analysis with Python </p>
+                            <p>Data Science 101 </p>
+                            <p>Data Visualization with Python </p>
+                            <p>Python 101 for Data Science </p>
+                        </div>
+                    </div>
+                    <div class="container">
+
+                        <div class="title">
+                            <h2>Achievements</h2>
+                        </div>
+
+                    </div>
+                    <div class="service">
+                        <div>
+                            <img src="logo1.png" alt="Web Development"><br>
+                            <p>
+                            <h3>Online Certifications : </h3>
+                            </p>
+                            <p>Sketching</p>
+                            <p>Coocking</p>
+                            <p>Listening Music</p>
+                            <p>Coding/ Typing</p>
+                        </div>
+                    </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+    </main>
+    </div>
+    </div>
+</body>
+
+</html>
